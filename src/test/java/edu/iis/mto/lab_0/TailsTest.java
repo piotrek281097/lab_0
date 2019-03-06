@@ -31,22 +31,32 @@ public class TailsTest {
 
     @Test
     public void tailsShouldReturnListOfStringsOfSizeEqualsToInputStringLengthPlusOne() {
+        tails = tailsGenerator.tails(HELLO);
+        assertThat(tails, Matchers.hasSize(HELLO.length() + 1));
+    }
+
+    @Test
+    public void callingTalisTwiceWithSameDataShouldReturnSameResultSize() {
+        tailsGenerator.tails(HELLO);
+        tails = tailsGenerator.tails(HELLO);
         assertThat(tails, Matchers.hasSize(HELLO.length() + 1));
     }
 
     @Test
     public void tailsShouldReturnFullStringAsFirstElement() {
-
+        tails = tailsGenerator.tails(HELLO);
         assertThat(tails.get(0), Matchers.equalTo(HELLO));
     }
 
     @Test
     public void tailsShouldReturn_LO_AsFourthString() {
+        tails = tailsGenerator.tails(HELLO);
         assertThat(tails.get(FOURTH_ELEM_INDEX), Matchers.equalTo(FOURTH_ELEM_VALUE));
     }
 
     @Test
     public void tailsShouldReturnEmptyStringAsLastElement() {
+        tails = tailsGenerator.tails(HELLO);
         assertThat(tails.get(tails.size() - 1), Matchers.equalTo(""));
     }
 
